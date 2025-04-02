@@ -1,4 +1,5 @@
-planta(rose, color(rojo)).
+planta(rose, color(rojo))
+
 planta(rose, altura(media)).
 planta(rose, epoca(floracion, primavera)).
 planta(rose, tipo(arbusto)).
