@@ -86,7 +86,6 @@ florecen(Planta):-planta(Planta,epoca(_,primavera)).
 % 1.c. Tienen un color específico.
 color(Planta,Color) :- planta(Planta, color(Color)).
 
-
 % 2.a. Las plantas que son arbustos y florecen en verano deben tener un sistema de riego especial.
 riego_especial(Planta) :- 
     riegoEspecial(Planta, requiere_riego_especial).
