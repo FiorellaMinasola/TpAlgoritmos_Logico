@@ -64,6 +64,19 @@ pista(flor_morada, tipo(flor)).
 pista(planta_alta, tipo(pasto)).
 pista(enredadera_verde, epoca(floracion,todo_el_ano)).
 
+% Predicados del punto 2.
+riegoEspecial(Planta, requiere_riego_especial) :-
+    planta(Planta, tipo(arbusto)),
+    planta(Planta, epoca(floracion, verano)).
+
+atraenInsectos(Planta, atrae_insectos_beneficos) :-
+    planta(Planta, color(rojo));
+    planta(Planta, color(amarillo)).
+
+consideradaAlta(Planta) :- 
+    planta(Planta, tipo(Tipo)), 
+    Tipo \= flor.
+
 % 1.a. Son de tipo arbusto.
 es_arbusto(Planta):-planta(Planta,tipo(arbusto)).
 
@@ -74,5 +87,16 @@ florecen(Planta):-planta(Planta,epoca(_,primavera)).
 color(Planta,Color) :- planta(Planta, color(Color)).
 
 
+% 2.a. Las plantas que son arbustos y florecen en verano deben tener un sistema de riego especial.
+riego_especial(Planta) :- 
+    riegoEspecial(Planta, requiere_riego_especial).
+
+% 2.b. Las plantas rojas o amarillas atraen mas insectos benéficos.
+atraen_insectos(Planta) :- 
+    atraenInsectos(Planta, atrae_insectos_beneficos).
+
+% 2.c. Las plantas que no son de tipo flor son consideradas altas.
+considerada_alta(Planta) :- 
+    consideradaAlta(Planta).
 
 
