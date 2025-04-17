@@ -98,7 +98,6 @@ atraen_insectos(Planta) :-
 considerada_alta(Planta) :- 
     consideradaAlta(Planta).
 
-
 % Punto 3 - Conjunto de todas las plantas que son cortas y de tipo flor.
 planta_corta_flor(Planta) :- 
     planta(Planta, altura(corta)), 
