@@ -99,3 +99,23 @@ considerada_alta(Planta) :-
     consideradaAlta(Planta).
 
 
+% Punto 3 - Conjunto de todas las plantas que son cortas y de tipo flor.
+planta_corta_flor(Planta) :- 
+    planta(Planta, altura(corta)), 
+    planta(Planta, tipo(flor)).
+
+% Punto 4 - Relación planta-observador 
+
+cumple_todas_las_pistas(_, Pistas, Indice) :-
+    length(Pistas, Lista),
+    Indice >= Lista.
+
+cumple_todas_las_pistas(Planta, Pistas, Indice) :-
+    nth0(Indice, Pistas, Pista),
+    planta(Planta, Pista),
+    NuevoIndice is Indice + 1,
+    cumple_todas_las_pistas(Planta, Pistas, NuevoIndice).
+
+coincide_con_observador(Planta, Observador) :-
+    findall(P, pista(Observador, P), Pistas),
+    cumple_todas_las_pistas(Planta, Pistas, 0).
