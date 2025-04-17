@@ -33,4 +33,18 @@
     test(coincide_con_observador_negativa_2, fail) :-
         coincide_con_observador(fern, flor_morada).
 
+    % Punto 5
+
+    test(atrae_mas_visitas_positiva,nondet) :-
+        atrae_mas_visitas(rose).
+
+    test(atrae_mas_visitas_negativa,nondet) :-
+        atrae_mas_visitas(sunflower).
+
+    test(atrae_mas_visitas_negativa_2,nondet) :-
+        atrae_mas_visitas(fern).
+
+    test(atrae_mas_visitas_positiva_2,nondet) :-
+        atrae_mas_visitas(orchid).    
+
 :- end_tests(pruebaPlantas).
