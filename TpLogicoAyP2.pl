@@ -117,7 +117,7 @@ cumple_todas_las_pistas(Planta, Pistas, Indice) :-
     
 coincide_con_observador(Planta, Observador) :-
     pista(Observador, _),
-    \+ (pista(Observador, Pista), \+ planta(Planta, Pista)).   
+    forall(pista(Observador, Pista), planta(Planta, Pista)).
     
 % Punto 5 - Planta con mas visitas 
 
