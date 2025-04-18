@@ -118,3 +118,16 @@ cumple_todas_las_pistas(Planta, Pistas, Indice) :-
 coincide_con_observador(Planta, Observador) :-
     findall(P, pista(Observador, P), Pistas),
     cumple_todas_las_pistas(Planta, Pistas, 0).
+    
+% Punto 5 - Planta con mas visitas 
+
+cantidad_pistas_cumple(Planta, Observador, Cantidad) :-
+    findall(Pistas, (pista(Observador, Pistas), planta(Planta, Pistas)), Lista),
+    length(Lista, Cantidad).
+
+atrae_mas_visitas(Planta) :-
+    plantas_companeras(Planta, Companera),
+    pista(Observador, _),
+    cantidad_pistas_cumple(Planta, Observador, Cant1),
+    cantidad_pistas_cumple(Companera, Observador, Cant2),
+    Cant1>Cant2.
