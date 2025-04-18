@@ -114,10 +114,10 @@ cumple_todas_las_pistas(Planta, Pistas, Indice) :-
     planta(Planta, Pista),
     NuevoIndice is Indice + 1,
     cumple_todas_las_pistas(Planta, Pistas, NuevoIndice).
-
+    
 coincide_con_observador(Planta, Observador) :-
-    findall(P, pista(Observador, P), Pistas),
-    cumple_todas_las_pistas(Planta, Pistas, 0).
+    pista(Observador, _),
+    \+ (pista(Observador, Pista), \+ planta(Planta, Pista)).   
     
 % Punto 5 - Planta con mas visitas 
 
