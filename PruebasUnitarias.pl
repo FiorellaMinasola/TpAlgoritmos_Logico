@@ -2,9 +2,19 @@
 
 :- begin_tests(pruebaPlantas).
 
+     % Punto 1
 
+    % Prueba de tipo_Planta
+    test(tipo_Planta_rose) :- es_arbusto(rose).
+    test(tipo_Planta_lily, fail) :- es_arbusto(lily).
 
+    % Prueba de florecen
+    test(florecen_rose) :- florecen(rose).
+    test(florecen_lily, fail) :- florecen(lily).
 
+    % Prueba de color
+    test(color_rose) :- color(rose, rojo).
+    test(color_lily) :- color(lily, blanco).
 
     % Punto 4
     
