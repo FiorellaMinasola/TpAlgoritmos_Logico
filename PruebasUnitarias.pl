@@ -6,8 +6,8 @@
 
 
 
-   % Punto 4
-
+    % Punto 4
+    
     % Prueba de coincide_con_observador
     test(coincide_con_observador_positiva,nondet) :-
         coincide_con_observador(rose, arbol_rojo).
