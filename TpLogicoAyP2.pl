@@ -1,3 +1,10 @@
+/* --- INTEGRANTES DEL GRUPO ---
+    Franco Garbarino Petrone - Legajo: 16349
+    Ivan Guillermo Righini - Legajo: 57743
+    Fiorella Angelina Minasola - Legajo: 58708
+    Lautaro Elian Rodriguez - Legajo: 59446
+*/
+
 planta(rose, color(rojo)).
 planta(rose, altura(media)).
 planta(rose, epoca(floracion, primavera)).
@@ -35,13 +42,24 @@ planta(ivy, altura(media)).
 planta(ivy, epoca(floracion, todo_el_ano)).
 planta(ivy, tipo(plantas_enredaderas)).
 
-% planta que cumpla condicion riego especial.
-
+% plantas agregadas para verificar correcto funcionamiento del punto 2
+planta(lily, color(rojo)).
+planta(lily, atraeIns(bene)).
 planta(acacia, color(verde_claro)).
 planta(acacia, altura(alta)).
 planta(acacia, epoca(floracion, verano)).
 planta(acacia, tipo(arbusto)).
 
+% --- PLANTAS AGREGADAS PARA PUNTO 2 ---
+
+
+% Cumple 2b y 2c (color rojo, no es flor)
+planta(coleus, tipo(ornamental)).
+planta(coleus, color(rojo)).
+planta(coleus, altura(media)).
+planta(coleus, epoca(floracion, verano)).
+
+% Relaciones entre plantas compañeras.
 plantas_companeras(rose, lily).
 plantas_companeras(lily, rose).
 plantas_companeras(tulip, sunflower).
@@ -103,21 +121,11 @@ planta_corta_flor(Planta) :-
     planta(Planta, altura(corta)), 
     planta(Planta, tipo(flor)).
 
+
 % Punto 4 - Relación planta-observador 
 
-cumple_todas_las_pistas(_, Pistas, Indice) :-
-    length(Pistas, Lista),
-    Indice >= Lista.
-
-cumple_todas_las_pistas(Planta, Pistas, Indice) :-
-    nth0(Indice, Pistas, Pista),
-    planta(Planta, Pista),
-    NuevoIndice is Indice + 1,
-    cumple_todas_las_pistas(Planta, Pistas, NuevoIndice).
-    
-coincide_con_observador(Planta, Observador) :-
-    pista(Observador, _),
-    forall(pista(Observador,Pista), planta(Planta, Pista)).
+cumple_todas_las_pistas(Planta, Observador) :-
+    forall(pista(Observador, Pista), planta(Planta,Pista)).
     
 % Punto 5 - Planta con mas visitas 
 
