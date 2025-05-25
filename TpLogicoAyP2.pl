@@ -52,6 +52,18 @@ planta(acacia, tipo(arbusto)).
 
 % --- PLANTAS AGREGADAS PARA PUNTO 2 ---
 
+% Cumple 2a (arbusto + floración en verano)
+planta(hibiscus, tipo(arbusto)).
+planta(hibiscus, epoca(floracion, verano)).
+planta(hibiscus, color(rosado)).
+planta(hibiscus, altura(media)).
+
+% Cumple 2a y 2b (arbusto, floración en verano, color rojo)
+planta(salvia, tipo(arbusto)).
+planta(salvia, epoca(floracion, verano)).
+planta(salvia, color(rojo)).
+planta(salvia, altura(baja)).
+
 % Cumple 2b (color amarillo)
 planta(marigold, color(amarillo)).
 planta(marigold, tipo(flor)).
@@ -131,8 +143,7 @@ planta(Planta, atraeIns(bene)):- planta(Planta, color(rojo)).
 planta(Planta, atraeIns(bene)):- planta(Planta, color(amarillo)).
 
 % 2.c. Las plantas que no son de tipo flor son consideradas altas.
-considerada_alta(Planta) :- 
-    consideradaAlta(Planta).
+planta(Planta, considerada(alta)) :-  planta(Planta, tipo(Tipo)), Tipo\=flor.
 
 % Punto 3 - Conjunto de todas las plantas que son cortas y de tipo flor.
 planta_corta_flor(Conjunto):-
