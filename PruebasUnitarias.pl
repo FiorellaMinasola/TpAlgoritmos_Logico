@@ -11,17 +11,20 @@
 
      % Punto 1
 
-    % Prueba de tipo_Planta
-    test(tipo_Planta_rose) :- es_arbusto(rose).
-    test(tipo_Planta_lily, fail) :- es_arbusto(lily).
+    % Punto 1.a - es_arbusto/1
+    test(es_arbusto_rose, nondet) :- es_arbusto(rose).
+    test(es_arbusto_acacia, nondet) :- es_arbusto(acacia).
+    test(es_arbusto_lily, fail) :- es_arbusto(lily).
 
-    % Prueba de florecen
-    test(florecen_rose) :- florecen(rose).
-    test(florecen_lily, fail) :- florecen(lily).
+    % Punto 1.b - florecen/1
+    test(florecen_rose, nondet) :- florecen(rose).
+    test(florecen_tulip, nondet) :- florecen(tulip).
+    test(florecen_sunflower, fail) :-florecen(sunflower).
 
-    % Prueba de color
-    test(color_rose) :- color(rose, rojo).
-    test(color_lily) :- color(lily, blanco).
+    % Punto 1.c - color/2
+    test(color_lily_blanco) :- color(lily, blanco).
+    test(color_tulip_amarillo, nondet) :- color(tulip, amarillo).
+    test(color_cactus_rojo, fail) :- color(cactus, rojo).
 
     % Punto 2 --- 
     
