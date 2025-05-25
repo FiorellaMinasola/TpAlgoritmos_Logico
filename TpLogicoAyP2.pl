@@ -52,6 +52,23 @@ planta(acacia, tipo(arbusto)).
 
 % --- PLANTAS AGREGADAS PARA PUNTO 2 ---
 
+% Cumple 2b (color amarillo)
+planta(marigold, color(amarillo)).
+planta(marigold, tipo(flor)).
+planta(marigold, altura(corta)).
+planta(marigold, epoca(floracion, verano)).
+
+% Cumple 2c (no tipo flor → considerada alta)
+planta(aloe_vera, tipo(suculenta)).
+planta(aloe_vera, color(verdes)).
+planta(aloe_vera, altura(alta)).
+planta(aloe_vera, epoca(floracion, verano)).
+
+% Cumple 2c (no tipo flor → considerada alta)
+planta(palmera, tipo(arbol)).
+planta(palmera, color(verde_oscuro)).
+planta(palmera, altura(alta)).
+planta(palmera, epoca(floracion, primavera)).
 
 % Cumple 2b y 2c (color rojo, no es flor)
 planta(coleus, tipo(ornamental)).
@@ -118,9 +135,9 @@ considerada_alta(Planta) :-
     consideradaAlta(Planta).
 
 % Punto 3 - Conjunto de todas las plantas que son cortas y de tipo flor.
-planta_corta_flor(Planta) :- 
-    planta(Planta, altura(corta)), 
-    planta(Planta, tipo(flor)).
+planta_corta_flor(Conjunto):-
+    findall(Planta, (planta(Planta, altura(corta)), planta(Planta, tipo(flor))), Conjunto).
+planta_corta_flor(Planta):-planta(Planta, altura(corta)), planta(Planta,tipo(flor)).
 
 
 % Punto 4 - Relación planta-observador 
