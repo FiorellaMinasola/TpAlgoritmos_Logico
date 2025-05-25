@@ -105,12 +105,13 @@ florecen(Planta):-planta(Planta,epoca(_,primavera)).
 color(Planta,Color) :- planta(Planta, color(Color)).
 
 % 2.a. Las plantas que son arbustos y florecen en verano deben tener un sistema de riego especial.
-riego_especial(Planta) :- 
-    riegoEspecial(Planta, requiere_riego_especial).
+planta(Planta, riego(especial)) :-
+    planta(Planta, tipo(arbusto)),
+    planta(Planta, epoca(floracion, verano)).
 
-% 2.b. Las plantas rojas o amarillas atraen mas insectos benéficos.
-atraen_insectos(Planta) :- 
-    atraenInsectos(Planta, atrae_insectos_beneficos).
+% 2.b. Las plantas que son amarillas o rojas antraen insectos beneficos.
+planta(Planta, atraeIns(bene)):- planta(Planta, color(rojo)).
+planta(Planta, atraeIns(bene)):- planta(Planta, color(amarillo)).
 
 % 2.c. Las plantas que no son de tipo flor son consideradas altas.
 considerada_alta(Planta) :- 
