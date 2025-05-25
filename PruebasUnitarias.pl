@@ -1,4 +1,11 @@
-:- include('TpLogico').
+/* --- INTEGRANTES DEL GRUPO ---
+    Franco Garbarino Petrone - Legajo: 16349
+    Ivan Guillermo Righini - Legajo: 57743
+    Fiorella Angelina Minasola - Legajo: 58708
+    Lautaro Elian Rodriguez - Legajo: 59446
+*/
+
+:- include('TpLogicoAyP2').
 
 :- begin_tests(pruebaPlantas).
 
@@ -15,21 +22,23 @@
     % Prueba de color
     test(color_rose) :- color(rose, rojo).
     test(color_lily) :- color(lily, blanco).
+
+    % Punto 2 --- 
     
-    % Punto 2 
-
-    % Prueba de riego_especial
-    test(riego_especial_rose, fail) :- riego_especial(rose).
-    test(riego_especial_lily, fail) :- riego_especial(lily).
-
-    % Prueba de atraen_insectos
-    test(atraen_insectos_rose, nondet) :- atraen_insectos(rose).
-    test(atraen_insectos_lily, fail) :- atraen_insectos(lily).
-
-    test(considerada_alta_sunflower, fail) :- considerada_alta(sunflower).
-    test(considerada_alta_ivy) :- considerada_alta(ivy).
-    test(considerada_alta_cactus) :- considerada_alta(cactus).
-    test(considerada_alta_tulip, fail) :- considerada_alta(tulip).
+    % Punto 2.a - planta con riego especial
+     test(riego_especial_hibiscus, nondet) :- planta(hibiscus, riego(especial)).
+     test(riego_especial_salvia, nondet) :- planta(salvia, riego(especial)).
+     test(riego_especial_lily, fail) :- planta(lily, riego(especial)).
+     
+     % Punto 2.b - planta que atrae insectos
+     test(atraeIns_lily, nondet) :- planta(lily, atraeIns(bene)).
+     test(atraeIns_marigold) :- planta(marigold, atraeIns(bene)).
+     test(atraeIns_fern, fail) :- planta(fern, atraeIns(bene)).
+     
+     % Punto 2.c - plantas consideradas altas
+     test(considerada_alta_cactus) :- planta(cactus, considerada(alta)).
+     test(considerada_alta_palmera) :- planta(palmera, considerada(alta)).
+     test(considerada_alta_tulip, fail) :- planta(tulip, considerada(alta)).
 
     % Punto 3 
 
