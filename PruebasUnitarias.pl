@@ -43,13 +43,19 @@
      test(considerada_alta_palmera) :- planta(palmera, considerada(alta)).
      test(considerada_alta_tulip, fail) :- planta(tulip, considerada(alta)).
 
-    % Punto 3 
-
-    % Prueba de planta_corta_flor
-    test(planta_corta_flor_lily) :- planta_corta_flor(lily).
-    test(planta_corta_flor_orchid) :- planta_corta_flor(orchid).
-    test(planta_corta_flor_tulip) :- planta_corta_flor(tulip).
-    test(planta_corta_flor_sunflower, fail) :- planta_corta_flor(sunflower).
+   
+    % Punto 3 - planta_corta_flor/1
+    test(planta_corta_flor_orchid, nondet) :- planta_corta_flor(orchid).
+    test(planta_corta_flor_lily, nondet) :- planta_corta_flor(lily).
+    test(planta_corta_flor_fern, fail) :- planta_corta_flor(fern).
+    
+    % Punto 3 - conjunto de plantas cortas de tipo flor
+    test(planta_corta_flor_lista, nondet) :- 
+        planta_corta_flor(Lista),
+        member(lily, Lista),
+        member(tulip, Lista),
+        member(orchid, Lista),
+        member(marigold, Lista).
    % Punto 4 - cumple_todas_las_pistas/2
    
     test(cumple_pistas_lily_flor_blanca) :- cumple_todas_las_pistas(lily, flor_blanca).
