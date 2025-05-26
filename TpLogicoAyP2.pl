@@ -111,18 +111,7 @@ pista(flor_morada, tipo(flor)).
 pista(planta_alta, tipo(pasto)).
 pista(enredadera_verde, epoca(floracion,todo_el_ano)).
 
-% Predicados del punto 2.
-riegoEspecial(Planta, requiere_riego_especial) :-
-    planta(Planta, tipo(arbusto)),
-    planta(Planta, epoca(floracion, verano)).
-
-atraenInsectos(Planta, atrae_insectos_beneficos) :-
-    planta(Planta, color(rojo));
-    planta(Planta, color(amarillo)).
-
-consideradaAlta(Planta) :- 
-    planta(Planta, tipo(Tipo)), 
-    Tipo \= flor.
+% --- RESOLUCION ----
 
 % 1.a. Son de tipo arbusto.
 es_arbusto(Planta):-planta(Planta,tipo(arbusto)).
@@ -150,14 +139,11 @@ planta_corta_flor(Conjunto):-
     findall(Planta, (planta(Planta, altura(corta)), planta(Planta, tipo(flor))), Conjunto).
 planta_corta_flor(Planta):-planta(Planta, altura(corta)), planta(Planta,tipo(flor)).
 
-
 % Punto 4 - Relación planta-observador 
-
 cumple_todas_las_pistas(Planta, Observador) :-
     forall(pista(Observador, Pista), planta(Planta,Pista)).
-    
-% Punto 5 - Planta con mas visitas 
 
+% Punto 5 - Planta con mas visitas 
 cantidad_pistas_cumple(Planta, Observador, Cantidad) :-
     findall(Pistas, (pista(Observador, Pistas), planta(Planta, Pistas)), Lista),
     length(Lista, Cantidad).
