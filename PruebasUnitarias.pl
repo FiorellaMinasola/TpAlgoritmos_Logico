@@ -9,8 +9,7 @@
 
 :- begin_tests(pruebaPlantas).
 
-     % Punto 1
-
+    % Punto 1 ---
     % Punto 1.a - es_arbusto/1
     test(es_arbusto_rose, nondet) :- es_arbusto(rose).
     test(es_arbusto_acacia, nondet) :- es_arbusto(acacia).
@@ -27,7 +26,6 @@
     test(color_cactus_rojo, fail) :- color(cactus, rojo).
 
     % Punto 2 --- 
-    
     % Punto 2.a - planta con riego especial
      test(riego_especial_hibiscus, nondet) :- planta(hibiscus, riego(especial)).
      test(riego_especial_salvia, nondet) :- planta(salvia, riego(especial)).
@@ -43,7 +41,7 @@
      test(considerada_alta_palmera, nondet) :- planta(palmera, considerada(alta)).
      test(considerada_alta_tulip, fail) :- planta(tulip, considerada(alta)).
 
-   
+    % Punto 3 ---
     % Punto 3 - planta_corta_flor/1
     test(planta_corta_flor_orchid, nondet) :- planta_corta_flor(orchid).
     test(planta_corta_flor_lily, nondet) :- planta_corta_flor(lily).
@@ -56,15 +54,16 @@
         member(tulip, Lista),
         member(orchid, Lista),
         member(marigold, Lista).
-   % Punto 4 - cumple_todas_las_pistas/2
-   
+
+    % Punto 4 ---
+    % Punto 4 - cumple_todas_las_pistas/2
     test(cumple_pistas_lily_flor_blanca) :- cumple_todas_las_pistas(lily, flor_blanca).
     test(cumple_pistas_cactus_planta_verde) :- cumple_todas_las_pistas(cactus, planta_verde).
     test(cumple_pistas_ivy_enredadera) :- cumple_todas_las_pistas(ivy, enredadera_verde).
     test(cumple_pistas_fern_flor_blanca, fail) :- cumple_todas_las_pistas(fern, flor_blanca).
-    
+
+    % Punto 5 ---
     % Punto 5 - atrae_mas_visitas/1
-    
     test(atrae_mas_visitas_rose, nondet) :- atrae_mas_visitas(rose).
     test(atrae_mas_visitas_lily, fail) :- \+ atrae_mas_visitas(lily).
 
