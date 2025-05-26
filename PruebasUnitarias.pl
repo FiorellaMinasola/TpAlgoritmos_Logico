@@ -39,8 +39,8 @@
      test(atraeIns_fern, fail) :- planta(fern, atraeIns(bene)).
      
      % Punto 2.c - plantas consideradas altas
-     test(considerada_alta_cactus) :- planta(cactus, considerada(alta)).
-     test(considerada_alta_palmera) :- planta(palmera, considerada(alta)).
+     test(considerada_alta_cactus, nondet) :- planta(cactus, considerada(alta)).
+     test(considerada_alta_palmera, nondet) :- planta(palmera, considerada(alta)).
      test(considerada_alta_tulip, fail) :- planta(tulip, considerada(alta)).
 
    
